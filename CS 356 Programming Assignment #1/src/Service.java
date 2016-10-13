@@ -1,7 +1,7 @@
 
 public interface Service {
 	
-	public void submit();
+	public void acceptSubmissions();
 	
 	public void display();
 }

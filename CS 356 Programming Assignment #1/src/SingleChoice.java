@@ -8,6 +8,4 @@ public class SingleChoice implements Answer {
 		response[0] = "1. Right";
 		response[1] = "2. Wrong";
 	}
-
-	
 }
