@@ -5,7 +5,22 @@ public class SimulationDriver {
 		Question randomQuestionType = Question.getRandom();
 		
 		if (randomQuestionType == Question.MULTIPLE) {
-			System.out.println();
+			MultipleChoice mc = new MultipleChoice();
+			mc.choice();
+			System.out.println("Multiple Choice: ");
+
+			for (int i = 0; i < 4; i++) {
+				System.out.println(mc.getResponses()[i] + ". ");
+			}
+		} else if (randomQuestionType == Question.SINGLE) {
+			SingleChoice sc = new SingleChoice();
+			sc.choice();
+			System.out.println("Single Choice: ");
+
+			for (int i = 0; i < 2; i++) {
+				System.out.println(sc.getResponses()[i]);
+			}
 		}
+		
 	}
 }

@@ -2,7 +2,15 @@
 public class IVoteService implements Service {
 
 	Question q;
+	Answer a;
 	MultipleChoice mc;
+	
+	
+	
+	public IVoteService(Question type, Answer candidate) {
+		q = type;
+		a = candidate;
+	}
 	
 	@Override
 	public void acceptSubmissions() {
