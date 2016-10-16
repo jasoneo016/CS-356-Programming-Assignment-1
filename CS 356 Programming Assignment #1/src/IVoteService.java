@@ -4,18 +4,16 @@ public class IVoteService implements Service {
 	Question q;
 	Answer a;
 	MultipleChoice mc;
+	Student student;
 	
-	
-	
-	public IVoteService(Question type, Answer candidate) {
+	public IVoteService(Question type, Answer candidateAnswers) {
 		q = type;
-		a = candidate;
+		a = candidateAnswers;
 	}
 	
 	@Override
 	public void acceptSubmissions() {
 		while (true) {
-			Answer a = new MultipleChoice();
 		}
 	}
 
