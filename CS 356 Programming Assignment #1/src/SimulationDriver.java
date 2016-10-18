@@ -5,15 +5,13 @@ public class SimulationDriver {
 	
 	public static void main(String[] args) {
 
-		IVoteService ivs;		
-		QuestionType randomQuestionType = QuestionType.getRandom();
+		IVoteService ivs = null;
 		Question question = null;
+		QuestionType randomQuestionType = QuestionType.getRandom();
 		
-
 		//5.3) Randomly generate a number of students and answers.
 		Random rand = new Random();
 		int numStudents = rand.nextInt(100) + 1;
-		System.out.println(numStudents);
 		Student[] students = new Student[numStudents];
 		
 		//5.1 & 5.2)		
@@ -23,7 +21,7 @@ public class SimulationDriver {
 			System.out.println("Multiple Choice: ");
 
 			for (int i = 0; i < 4; i++) {
-				System.out.println(question.getResponses()[i] + ". ");
+				System.out.println(question.getResponse(i) + ". ");
 			}
 		} else if (randomQuestionType == QuestionType.SINGLE) {
 			question = new SingleChoice();
@@ -31,29 +29,27 @@ public class SimulationDriver {
 			System.out.println("Single Choice: ");
 
 			for (int i = 0; i < 2; i++) {
-				System.out.println(question.getResponses()[i]);
+				System.out.println(question.getResponse(i));
 			}
 		}		
 		
 
 		for (int i = 0; i < numStudents; i++) {
+			
+			students[i] = new Student(Integer.toString(i));
+			
 			if (randomQuestionType == QuestionType.MULTIPLE) {
-				rand = new Random();
 				int index = rand.nextInt(question.choice().length);
-				System.out.println();
-				System.out.println(index);
-				students[i].setAnswer(question.getResponses()[index]);
-				
-				System.out.println(question.getResponses()[index]);
+				students[i].setAnswer(question.getResponse(index));
+				System.out.println(question.getResponse(index));
+//				ivs.acceptSubmissions(question.getResponse(index));
 			} else if (randomQuestionType == QuestionType.SINGLE) {
-				rand = new Random();
-				int index = rand.nextInt(question.getResponses().length);
-				System.out.println();
-				System.out.println(index);
-				System.out.println(question.getResponses()[index]);
-				students[i].setAnswer(question.getResponses()[index]);
-				System.out.println(question.getResponses()[index]);
+				int index = rand.nextInt(question.choice().length);
+				students[i].setAnswer(question.getResponse(index));
 			}
 		}
+		
+		
+		ivs.display();
 	}
 }

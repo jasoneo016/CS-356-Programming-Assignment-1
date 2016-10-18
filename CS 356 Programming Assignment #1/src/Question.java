@@ -5,8 +5,8 @@ public interface Question {
 	
 	public String[] choice();
 	
-	public void setResponses(String[] response);
+	public void setResponse(String response, int index);
 	
-	public String[] getResponses();
+	public String getResponse(int index);
 	
 }

@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class MultipleChoice implements Question {
 
 	private String[] response = new String[4];
@@ -14,12 +12,12 @@ public class MultipleChoice implements Question {
 	}
 	
 	@Override
-	public void setResponses(String[] response) {
-		this.response = Arrays.copyOf(response, response.length);
+	public void setResponse(String response, int index) {
+		this.response[index] = response;
 	}
 
 	@Override
-	public String[] getResponses() {
-		return Arrays.copyOf(response, response.length);
+	public String getResponse(int index) {
+		return response[index];
 	}
 }

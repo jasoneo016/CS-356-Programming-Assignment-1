@@ -1,10 +1,9 @@
-
 public class Student {
 
 	private String ID;
 	private String answer;
 	
-	public void setID(String ID) {
+	public Student(String ID) {
 		this.ID = ID;
 	}
 	
