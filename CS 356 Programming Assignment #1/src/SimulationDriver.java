@@ -33,6 +33,9 @@ public class SimulationDriver {
 			}
 		}		
 		
+		System.out.println();
+		System.out.println("# of Students: " + numStudents);
+		System.out.println();
 
 		for (int i = 0; i < numStudents; i++) {
 			
@@ -41,15 +44,15 @@ public class SimulationDriver {
 			if (randomQuestionType == QuestionType.MULTIPLE) {
 				int index = rand.nextInt(question.choice().length);
 				students[i].setAnswer(question.getResponse(index));
-				System.out.println(question.getResponse(index));
-//				ivs.acceptSubmissions(question.getResponse(index));
+				ivs.acceptSubmission(randomQuestionType, index);
 			} else if (randomQuestionType == QuestionType.SINGLE) {
 				int index = rand.nextInt(question.choice().length);
 				students[i].setAnswer(question.getResponse(index));
+				ivs.acceptSubmission(randomQuestionType, index);
 			}
 		}
 		
 		
-		ivs.display();
+		ivs.display(randomQuestionType);
 	}
 }
