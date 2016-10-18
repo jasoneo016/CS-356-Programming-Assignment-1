@@ -1,15 +1,16 @@
 import java.util.Arrays;
 
-public class MultipleChoice implements Answer {
+public class MultipleChoice implements Question {
 
 	private String[] response = new String[4];
 	
 	@Override
-	public void choice() {
+	public String[] choice() {
 		response[0] = "A";
 		response[1] = "B";
 		response[2] = "C";
 		response[3] = "D";
+		return response;
 	}
 	
 	@Override

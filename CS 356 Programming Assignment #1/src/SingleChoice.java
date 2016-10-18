@@ -1,14 +1,15 @@
 import java.util.Arrays;
 
 
-public class SingleChoice implements Answer {
+public class SingleChoice implements Question {
 
 	private String[] response = new String[2];
 	
 	@Override
-	public void choice() {
+	public String[] choice() {
 		response[0] = "1. Right";
 		response[1] = "2. Wrong";
+		return response;
 	}
 	
 	@Override

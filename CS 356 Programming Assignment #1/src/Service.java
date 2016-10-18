@@ -1,7 +1,7 @@
 
 public interface Service {
 	
-	public void acceptSubmissions();
+	public void acceptSubmissions(Student student);
 	
-	public void display();
+	public void display(Question q);
 }

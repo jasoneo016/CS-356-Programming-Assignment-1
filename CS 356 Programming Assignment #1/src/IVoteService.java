@@ -1,29 +1,25 @@
 
 public class IVoteService implements Service {
-
-	Question q;
-	Answer a;
-	MultipleChoice mc;
-	Student student;
 	
-	public IVoteService(Question type, Answer candidateAnswers) {
-		q = type;
-		a = candidateAnswers;
+	private int[] numAnswers;
+	
+	public IVoteService(Question q) {
+		q.choice();
+		numAnswers = new int[q.choice().length];
 	}
 	
 	@Override
-	public void acceptSubmissions() {
+	public void acceptSubmissions(Student student) {
 		while (true) {
+			student.getAnswer();
 		}
 	}
 
 	@Override
-	public void display() {
-		if (q == Question.MULTIPLE) {
-			mc.choice();
-			System.out.println();
+	public void display(Question q) {
+		for (int i = 0; i < q.choice().length; i++) {
+			System.out.println(q.choice()[i] + ": "  );
 		}
-		System.out.println();
 	}
 
 }
