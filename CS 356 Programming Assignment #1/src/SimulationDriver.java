@@ -35,21 +35,24 @@ public class SimulationDriver {
 			}
 		}		
 		
-		for (int i = 1; i < numStudents; i++) {
+
+		for (int i = 0; i < numStudents; i++) {
 			if (randomQuestionType == QuestionType.MULTIPLE) {
 				rand = new Random();
 				int index = rand.nextInt(question.choice().length);
+				System.out.println();
 				System.out.println(index);
-				System.out.println(question.choice()[index]);
-				students[i].setAnswer(question.choice()[index]);
-				System.out.println(question.choice()[index]);
+				students[i].setAnswer(question.getResponses()[index]);
+				
+				System.out.println(question.getResponses()[index]);
 			} else if (randomQuestionType == QuestionType.SINGLE) {
 				rand = new Random();
-				int index = rand.nextInt(question.choice().length);
+				int index = rand.nextInt(question.getResponses().length);
+				System.out.println();
 				System.out.println(index);
-				System.out.println(question.choice()[index]);
-				students[i].setAnswer(question.choice()[index]);
-				System.out.println(question.choice()[index]);
+				System.out.println(question.getResponses()[index]);
+				students[i].setAnswer(question.getResponses()[index]);
+				System.out.println(question.getResponses()[index]);
 			}
 		}
 	}
